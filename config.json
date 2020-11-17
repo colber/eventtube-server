@@ -1,0 +1,10 @@
+{
+    "service":{
+        "name": "EVENTBUS",
+        "description": "Сервис нотификации web клиентов (event bus)",
+        "version": "1.0",
+        "host": "0.0.0.0",
+        "port": "9000",
+        "mode":"dev"
+    }
+}
