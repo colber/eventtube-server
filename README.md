@@ -35,43 +35,43 @@ You can find it on the path `http://localhost:9000/sdk/js`
 ## On the FrontEnd
 
 The first include SDK, in the web page's header add following commands
-
-    $ <script src="http://localhost:9000/sdk/js" async onload="initEventTube()"></script>
-
+```html
+    <script src="http://localhost:9000/sdk/js" async onload="initEventTube()"></script>
+```
 The seccond connect to the server:
 
-    $ function initEventTube(){
-    $ var options={
-    $     connection:{
-    $     host:'localhost',
-    $     port:'9000'
-    $     }
-    $ }
-    $ var eventTube=new EventTube(options);
-    $ window.EventTube=eventTube;
-    $ window.EventTube.connect();
+    function initEventTube(){
+    var options={
+        connection:{
+            host:'localhost',
+            port:'9000'
+        }
+    }
+    var eventTube=new EventTube(options);
+    window.EventTube=eventTube;
+    window.EventTube.connect();
 }
 
 For subscribe to event run following commands
     
-    $ var self=this;
-    $ var subscriptionId=null;
-    $ window.EventTube.sub('YOUR_EVENT_NAME',function(data){
-    $     //Event handle
-    $     console.log(data);
-    $ }).then(function(subId){
-    $     // Subscribe handle
-    $     subscriptionId = subId;
-    $     сonsole.log('subId:',subId);
-    $ },function(err){
-    $     // Error handle
-    $     console.log(err);
-    $ });
+    var self=this;
+    var subscriptionId=null;
+    window.EventTube.sub('YOUR_EVENT_NAME',function(data){
+        //Event handle
+        console.log(data);
+    }).then(function(subId){
+        // Subscribe handle
+        subscriptionId = subId;
+        сonsole.log('subId:',subId);
+    },function(err){
+        // Error handle
+        console.log(err);
+    });
 
 For publish event run following commands
     
-    $ window.EventTube.pub('YOUR_EVENT_NAME', 'YOUR_EVENT_DATA');
+    window.EventTube.pub('YOUR_EVENT_NAME', 'YOUR_EVENT_DATA');
 
 For unsubscribe to event run following commands
     
-    $ window.EventTube.unsub('YOUR_EVENT_NAME', OPTIONAL_SUB_ID');
+    window.EventTube.unsub('YOUR_EVENT_NAME', OPTIONAL_SUB_ID');
