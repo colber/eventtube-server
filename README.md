@@ -6,18 +6,23 @@ web chat application.
 
 ## Running the example
 
-The example requires a working Go development environment. The [Getting
-Started](http://golang.org/doc/install) page describes how to install the
+The example requires a working Go development environment or Docker.
+The [Golang GettingStarted](http://golang.org/doc/install) page describes how to install the
 development environment.
 
 Once you have Go up and running, you can download, build and run the example
 using the following commands.
 
-    $ go get github.com/gorilla/websocket
-    $ cd `go list -f '{{.Dir}}' github.com/gorilla/websocket/examples/chat`
-    $ go run *.go
+    $ git clone git@github.com:colber/eventtube-server.git your_dir
+    $ cd your_dir
+    $ go run main.go
 
-To use the chat example, open http://localhost:8080/ in your browser.
+For run the example in the Docker please use the following commands.
+
+    $ docker pull ptimofeev/eventtube:latest
+    $ docker run --name eventtube --rm -p 9000:9000 ptimofeev/eventtube
+
+After that the server will be started on the `locakhost:9000`
 
 ## Server
 
@@ -25,7 +30,7 @@ The server application defines two types, `Client` and `Hub`. The server
 creates an instance of the `Client` type for each websocket connection. A
 `Client` acts as an intermediary between the websocket connection and a single
 instance of the `Hub` type. The `Hub` maintains a set of registered clients and
-broadcasts messages to the clients.
+pub/sub messages to the clients.
 
 The application runs one goroutine for the `Hub` and two goroutines for each
 `Client`. The goroutines communicate with each other using channels. The `Hub`
