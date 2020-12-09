@@ -1,13 +1,11 @@
-# Chat Example
+# EventTube
 
-This application shows how to use the
-[websocket](https://github.com/gorilla/websocket) package to implement a simple
-web chat application.
+EventTube is a simple real-time and bidirectional messaging server between FrontEnd and BackEnd.
 
 ## Running the example
 
 The example requires a working Go development environment or Docker.
-The [Golang GettingStarted](http://golang.org/doc/install) page describes how to install the
+The [GettingStarted](http://golang.org/doc/install) page describes how to install the
 development environment.
 
 Once you have Go up and running, you can download, build and run the example
