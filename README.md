@@ -39,7 +39,7 @@ The first include SDK, in the web page's header add following commands
     <script src="http://localhost:9000/sdk/js" async onload="initEventTube()"></script>
 ```
 The seccond connect to the server:
-
+```js
     function initEventTube(){
     var options={
         connection:{
@@ -51,9 +51,9 @@ The seccond connect to the server:
     window.EventTube=eventTube;
     window.EventTube.connect();
 }
-
+```
 For subscribe to event run following commands
-    
+```js    
     var self=this;
     var subscriptionId=null;
     window.EventTube.sub('YOUR_EVENT_NAME',function(data){
@@ -67,11 +67,12 @@ For subscribe to event run following commands
         // Error handle
         console.log(err);
     });
-
+```
 For publish event run following commands
-    
+```js    
     window.EventTube.pub('YOUR_EVENT_NAME', 'YOUR_EVENT_DATA');
-
+```
 For unsubscribe to event run following commands
-    
+```js        
     window.EventTube.unsub('YOUR_EVENT_NAME', OPTIONAL_SUB_ID');
+```
