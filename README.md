@@ -41,16 +41,16 @@ The first include SDK, in the web page's header add following commands
 The seccond connect to the server:
 ```js
     function initEventTube(){
-    var options={
-        connection:{
-            host:'localhost',
-            port:'9000'
+        var options={
+            connection:{
+                host:'localhost',
+                port:'9000'
+            }
         }
+        var eventTube=new EventTube(options);
+        window.EventTube=eventTube;
+        window.EventTube.connect();
     }
-    var eventTube=new EventTube(options);
-    window.EventTube=eventTube;
-    window.EventTube.connect();
-}
 ```
 For subscribe to event run following commands
 ```js    
